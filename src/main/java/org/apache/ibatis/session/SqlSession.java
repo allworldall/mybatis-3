@@ -26,13 +26,14 @@ import org.apache.ibatis.executor.BatchResult;
 /**
  * The primary Java interface for working with MyBatis.
  * Through this interface you can execute commands, get mappers and manage transactions.
- *
+ * 使用MyBatis的主要Java接口。通过这个接口，您可以执行命令、获取映射器和管理事务
  * @author Clinton Begin
  */
 public interface SqlSession extends Closeable {
 
   /**
    * Retrieve a single row mapped from the statement key.
+   * 从语句键映射的单行检索
    * @param <T> the returned object type
    * @param statement
    *          the statement
@@ -69,6 +70,7 @@ public interface SqlSession extends Closeable {
   /**
    * Retrieve a list of mapped objects from the statement key and parameter,
    * within the specified row bounds.
+   * 在指定的行边界内（limit，offset），从语句键和参数中检索映射对象的列表
    * @param <E> the returned list element type
    * @param statement Unique identifier matching the statement to use.
    * @param parameter A parameter object to pass to the statement.
@@ -81,6 +83,7 @@ public interface SqlSession extends Closeable {
    * The selectMap is a special case in that it is designed to convert a list
    * of results into a Map based on one of the properties in the resulting
    * objects.
+   * selectMap是一种特殊情况，它设计用于根据结果对象中的一个属性将结果列表转换为映射。
    * Eg. Return a of Map[Integer,Author] for selectMap("selectAuthors","id")
    * @param <K> the returned Map keys type
    * @param <V> the returned Map values type
@@ -119,6 +122,7 @@ public interface SqlSession extends Closeable {
 
   /**
    * A Cursor offers the same results as a List, except it fetches data lazily using an Iterator.
+   * 游标提供与列表相同的结果，只是它使用迭代器惰性地获取数据
    * @param <T> the returned cursor element type.
    * @param statement Unique identifier matching the statement to use.
    * @return Cursor of mapped objects
@@ -226,7 +230,8 @@ public interface SqlSession extends Closeable {
   /**
    * Flushes batch statements and commits database connection.
    * Note that database connection will not be committed if no updates/deletes/inserts were called.
-   * To force the commit call {@link SqlSession#commit(boolean)}
+   * 刷新批处理语句并提交数据库连接。请注意，如果未调用更新/删除/插入，则不会提交数据库连接。
+   * To force（强制） the commit call {@link SqlSession#commit(boolean)}
    */
   void commit();
 
@@ -239,6 +244,7 @@ public interface SqlSession extends Closeable {
   /**
    * Discards pending batch statements and rolls database connection back.
    * Note that database connection will not be rolled back if no updates/deletes/inserts were called.
+   * 丢弃挂起的批处理语句并回滚数据库连接。请注意，如果未调用更新/删除/插入，则不会回滚数据库连接。
    * To force the rollback call {@link SqlSession#rollback(boolean)}
    */
   void rollback();

@@ -29,6 +29,8 @@ import org.apache.ibatis.reflection.wrapper.ObjectWrapperFactory;
 
 /**
  * @author Clinton Begin
+ * 根据传入的原始对象的类型以及ObjectFactory工厂的实现，创建相应的ObjectWrapper对象
+ * 定义了一系列查询对象属性信息的方法，以及更新属性的方法
  */
 public class MetaObject {
 

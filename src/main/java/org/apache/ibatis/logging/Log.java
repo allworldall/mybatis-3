@@ -17,6 +17,7 @@ package org.apache.ibatis.logging;
 
 /**
  * @author Clinton Begin
+ * 通过适配器模式集成如Log4j、Log4j2、slf4j等第三方日志框架
  */
 public interface Log {
 

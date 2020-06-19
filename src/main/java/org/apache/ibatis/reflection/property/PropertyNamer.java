@@ -21,6 +21,7 @@ import org.apache.ibatis.reflection.ReflectionException;
 
 /**
  * @author Clinton Begin
+ * 完成方法名到属性名的转换的静态方法
  */
 public final class PropertyNamer {
 

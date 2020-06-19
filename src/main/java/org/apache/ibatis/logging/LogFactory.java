@@ -20,6 +20,8 @@ import java.lang.reflect.Constructor;
 /**
  * @author Clinton Begin
  * @author Eduardo Macarron
+ * 通过配置生成相应的日志对象，优先初始化后，就不再创建
+ * 返回Log
  */
 public final class LogFactory {
 

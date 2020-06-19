@@ -22,6 +22,7 @@ import java.sql.SQLException;
 
 /**
  * @author Clinton Begin
+ * 类型转换模块的最高接口
  */
 public interface TypeHandler<T> {
 

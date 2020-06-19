@@ -28,6 +28,10 @@ import org.apache.ibatis.datasource.DataSourceFactory;
 
 /**
  * @author Clinton Begin
+ *
+ * Jndi（Java名称目录接口，jndi是J2ee规范中很重要的一个规范，将资源的具体的一些特性封装起来，对外暴露接口，
+ * 调用时屏蔽了资源的差异，比如获取数据源，屏蔽了数据源的各种属性的不通，以及数据库的不通）
+ * 日常中没有用到这个方式
  */
 public class JndiDataSourceFactory implements DataSourceFactory {
 

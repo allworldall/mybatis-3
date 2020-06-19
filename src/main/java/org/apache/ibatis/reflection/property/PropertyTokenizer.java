@@ -19,6 +19,7 @@ import java.util.Iterator;
 
 /**
  * @author Clinton Begin
+ * 解析由“orders[O].items[0].name”这种由“.”和“[]”组成的表达式
  */
 public class PropertyTokenizer implements Iterator<PropertyTokenizer> {
   private String name;

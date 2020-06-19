@@ -31,6 +31,10 @@ import org.apache.ibatis.transaction.Transaction;
  * Ignores all commit or rollback requests.
  * By default, it closes the connection but can be configured not to do it.
  *
+ * 它允许容器管理事务的整个生命周期。
+ * *在调用getConnection（）之前延迟连接检索。
+ * *忽略所有提交或回滚请求。
+ * *默认情况下，它会关闭连接，但可以配置为不这样做
  * @author Clinton Begin
  *
  * @see ManagedTransactionFactory

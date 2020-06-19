@@ -35,6 +35,7 @@ import org.apache.ibatis.reflection.Reflector;
 
 /**
  * @author Clinton Begin
+ * 根据类型，和累的默认构造函数创建mybatis需要的对像
  */
 public class DefaultObjectFactory implements ObjectFactory, Serializable {
 

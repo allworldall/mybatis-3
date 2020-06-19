@@ -21,6 +21,7 @@ import org.apache.ibatis.reflection.Reflector;
 
 /**
  * @author Clinton Begin
+ * 实现相同类型的两个对象之间的属性值拷贝
  */
 public final class PropertyCopier {
 

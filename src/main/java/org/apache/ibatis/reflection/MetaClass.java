@@ -28,6 +28,8 @@ import org.apache.ibatis.reflection.property.PropertyTokenizer;
 
 /**
  * @author Clinton Begin
+ * 通过Reflector和Property Tokenizer组合使用，实现对复杂的属性表达式的解析，并能获取指定属性描述信息
+ * 每个对象都对应一种Reflector的解析（构造函数会根据一个Type创建一个reflector）
  */
 public class MetaClass {
 

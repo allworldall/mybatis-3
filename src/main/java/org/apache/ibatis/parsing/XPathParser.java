@@ -43,14 +43,15 @@ import org.xml.sax.SAXParseException;
 /**
  * @author Clinton Begin
  * @author Kazuki Shimizu
+ * 封装解析XML功能
  */
 public class XPathParser {
 
-  private final Document document;
-  private boolean validation;
-  private EntityResolver entityResolver;
-  private Properties variables;
-  private XPath xpath;
+  private final Document document;//Document对象通过createDocument方法得到
+  private boolean validation;//是否开启验证
+  private EntityResolver entityResolver;//用于加载本地DTD文件，具体实现为XMLMapperEntityResolver类
+  private Properties variables;//mybatis-config.xml 中<propteries>标签定义的键值对集合
+  private XPath xpath;//XPath对象
 
   public XPathParser(String xml) {
     commonConstructor(false, null, null);

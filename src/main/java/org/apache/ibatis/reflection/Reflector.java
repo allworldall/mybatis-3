@@ -46,6 +46,7 @@ import org.apache.ibatis.reflection.property.PropertyNamer;
  * allows for easy mapping between property names and getter/setter methods.
  *
  * @author Clinton Begin
+ * 封装了原生的Java反射库，每个Reflector对象都对应一个类，缓存类反射操作需要都所有元信息
  */
 public class Reflector {
 
@@ -58,7 +59,7 @@ public class Reflector {
   private final Map<String, Class<?>> getTypes = new HashMap<>();
   private Constructor<?> defaultConstructor;
 
-  // 所有属性名称集合
+  // 所有属性名称集合，key：大写属性名，value：属性名
   private Map<String, String> caseInsensitivePropertyMap = new HashMap<>();
 
   public Reflector(Class<?> clazz) {

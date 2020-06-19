@@ -39,6 +39,7 @@ public class TypeParameterResolver {
    *          the src type
    * @return The field type as {@link Type}. If it has type parameters in the declaration,<br>
    *         they will be resolved to the actual runtime {@link Type}s.
+   *         解析实际运行时类型
    */
   public static Type resolveFieldType(Field field, Type srcType) {
     Type fieldType = field.getGenericType();

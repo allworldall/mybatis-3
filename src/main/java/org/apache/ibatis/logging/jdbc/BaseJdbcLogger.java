@@ -37,6 +37,7 @@ import org.apache.ibatis.reflection.ArrayUtil;
  *
  * @author Clinton Begin
  * @author Eduardo Macarron
+ * 通过JDK动态代理的方式，将JDBC操作通过指定的日志框架打印出来
  */
 public abstract class BaseJdbcLogger {
 

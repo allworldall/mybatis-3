@@ -46,6 +46,14 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
  * @author Clinton Begin
+ * 二级缓存构建在一级缓存之上，在收到查询请求时，MyBatis 首先会查询二级缓存。若二级缓存未命中，再去查询一级缓存。与一级缓存不同，二级缓存和具体的命名空间绑定，一级缓存则是和 SqlSession 绑定。
+ * 一级缓存
+ * 一级缓存的生命周期与SqlSession相同，其实也就与SqlSession中封装的Executor对象的生命周期相同。当调用Executor对象的close方法时，该Executor对象对应的一级缓存就变得不可用。一级缓存中对象的存活时间受很多方面的影响，例如，在调用Executorupdate）方法时，也会先清空一级缓存。其他影响一级缓存中数据的行为，我们在分析BaseExecutor的具体实现时会详细介绍。一级缓存默认是开启的，一般情况下，不需要用户进行特殊配置。
+ * 一级缓存的CacheKey对象由MappedStatement的id、对应的offset和limit、SQL语句（包含“？”占位符）、用户传递的实参以及Environment的id这五部分构成
+ * 二级缓存
+ * CachingExecutor 是一个Executor接口的装饰器，它为Executor对象增加了二级缓存的相关功能，TransactionalCache和TransactionalCacheManager是CachingExecutor依赖的两个组件。其中，TransactionalCache 继承了Cache接口，主要用于保存在某个SqlSession的某个事务中需要向某个二级缓存中添加的缓存数据。
+ * TransactionalCacheManager 用于管理 CachingExecutor使用的二级缓存对象，其中只定义了一个transactionalCaches 字段（HashMap<Cache，TransactionalCache>类型），它的key是对应的CachingExecutor 使用的二级缓存对象，value是相应的TransactionalCache对象，在该TransactionalCache中封装了对应的二级缓存对象，也就是这里的key
+ * SynchronizedCache 这个装饰器，从而保证二级缓存的线程安全
  */
 public abstract class BaseExecutor implements Executor {
 

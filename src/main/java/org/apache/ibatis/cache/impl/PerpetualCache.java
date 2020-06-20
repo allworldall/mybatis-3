@@ -23,6 +23,7 @@ import org.apache.ibatis.cache.CacheException;
 
 /**
  * @author Clinton Begin
+ * 被装饰对象的原始类
  */
 public class PerpetualCache implements Cache {
 

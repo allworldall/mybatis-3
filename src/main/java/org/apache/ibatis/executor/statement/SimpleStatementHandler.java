@@ -34,6 +34,7 @@ import org.apache.ibatis.session.RowBounds;
 
 /**
  * @author Clinton Begin
+ * 它底层使用java.sql.Statement对象来完成数据库的相关操作，所以SQL语句中不能存在占位符，相应的，SimpleStatementHandler.parameterize方法是空实现
  */
 public class SimpleStatementHandler extends BaseStatementHandler {
 

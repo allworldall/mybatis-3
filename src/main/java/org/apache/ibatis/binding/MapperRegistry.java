@@ -33,7 +33,9 @@ import org.apache.ibatis.session.SqlSession;
  */
 public class MapperRegistry {
 
+  //Configuration对象，MyBatis全局唯一的配置对象，其中包含了所有配置信息
   private final Configuration config;
+  // //记录了Mapper接口与对应MapperProxyFactory之间的关系
   private final Map<Class<?>, MapperProxyFactory<?>> knownMappers = new HashMap<>();
 
   public MapperRegistry(Configuration config) {

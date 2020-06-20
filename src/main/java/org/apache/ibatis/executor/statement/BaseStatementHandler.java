@@ -35,6 +35,7 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
  * @author Clinton Begin
+ * 实现了StatementHandler接口的抽象类，它只提供了一些参数绑定相关的方法，并没有实现操作数据库的方法
  */
 public abstract class BaseStatementHandler implements StatementHandler {
 

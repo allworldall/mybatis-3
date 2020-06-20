@@ -29,6 +29,7 @@ import org.apache.ibatis.transaction.Transaction;
 
 /**
  * @author Clinton Begin
+ * 主要负责维护一、二级缓存，并提供事务管理相关操作，它会将数据库相关操作委托给 StatementHandler 完成
  */
 public interface Executor {
 
@@ -48,18 +49,20 @@ public interface Executor {
 
   void rollback(boolean required) throws SQLException;
 
+
+  //创建缓存中用到的CacheKey对象
   CacheKey createCacheKey(MappedStatement ms, Object parameterObject, RowBounds rowBounds, BoundSql boundSql);
-
+  //根据CacheKey对象查找缓存
   boolean isCached(MappedStatement ms, CacheKey key);
-
+  //清空一级缓存
   void clearLocalCache();
-
+  //延迟加载一级缓存中的数据，DeferredLoad的相关内容后面会详细介绍
   void deferLoad(MappedStatement ms, MetaObject resultObject, String property, CacheKey key, Class<?> targetType);
 
   Transaction getTransaction();
 
   void close(boolean forceRollback);
-
+  //检测Executor是否已关闭
   boolean isClosed();
 
   void setExecutorWrapper(Executor executor);

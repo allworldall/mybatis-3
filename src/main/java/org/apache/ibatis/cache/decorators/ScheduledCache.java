@@ -25,7 +25,7 @@ import org.apache.ibatis.cache.Cache;
 public class ScheduledCache implements Cache {
 
   private final Cache delegate;
-  protected long clearInterval;
+  protected long clearInterval; //间隔
   protected long lastClear;
 
   public ScheduledCache(Cache delegate) {

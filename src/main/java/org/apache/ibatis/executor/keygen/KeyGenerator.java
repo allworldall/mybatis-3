@@ -22,6 +22,8 @@ import org.apache.ibatis.mapping.MappedStatement;
 
 /**
  * @author Clinton Begin
+ *
+ * 返回主键的接口
  */
 public interface KeyGenerator {
 
